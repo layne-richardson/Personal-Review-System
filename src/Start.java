@@ -1,9 +1,20 @@
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.awt.Insets;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import java.awt.GridLayout;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.awt.Color;
+import javax.swing.JLabel;
+import javax.swing.SwingConstants;
+import javax.swing.ImageIcon;
+import java.awt.Dimension;
+import javax.swing.border.EtchedBorder;
 
 public class Start extends JFrame {
 
@@ -33,12 +44,51 @@ public class Start extends JFrame {
 	 * Create the frame.
 	 */
 	public Start() {
+		setMinimumSize(new Dimension(1020, 725));
+		setTitle("Personal Review System");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 1020, 725);
 		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		contentPane.setLayout(new BorderLayout(0, 0));
+		contentPane.setBorder(new EmptyBorder(100, 100, 100, 100));
 		setContentPane(contentPane);
+		contentPane.setLayout(new GridLayout(3, 1, 100, 100));
+		Insets buttonMargin = new Insets(20, 20, 20, 20);
+		
+		JLabel lblWelcome = new JLabel();
+		lblWelcome.setHorizontalAlignment(SwingConstants.CENTER);
+		ImageIcon welcomeIcon = new ImageIcon("Images/Welcome.png");
+		lblWelcome.setIcon(welcomeIcon);
+		
+		contentPane.add(lblWelcome);		
+		
+		JButton btnNewReview = new JButton();
+		btnNewReview.setMargin(buttonMargin);
+		btnNewReview.setBorderPainted(false);
+		btnNewReview.setFocusPainted(false);
+		btnNewReview.setContentAreaFilled(false);
+		ImageIcon newReviewIcon = new ImageIcon("Images/NewReview.png");
+		btnNewReview.setIcon(newReviewIcon);
+		btnNewReview.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+
+		contentPane.add(btnNewReview);
+		
+		JButton btnViewReviews = new JButton();
+		btnViewReviews.setMargin(buttonMargin);
+		btnViewReviews.setBorderPainted(false);
+		btnViewReviews.setFocusPainted(false);
+		btnViewReviews.setContentAreaFilled(false);
+		ImageIcon viewReviewsIcon = new ImageIcon("Images/ViewReviews.png");
+		btnViewReviews.setIcon(viewReviewsIcon);
+		btnViewReviews.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
+		contentPane.add(btnViewReviews);
+		
 	}
 
 }

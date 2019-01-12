@@ -54,6 +54,7 @@ public class Start extends JFrame {
 		contentPane.setLayout(new GridLayout(3, 1, 100, 100));
 		Insets buttonMargin = new Insets(20, 20, 20, 20);
 		
+		//welcome label
 		JLabel lblWelcome = new JLabel();
 		lblWelcome.setHorizontalAlignment(SwingConstants.CENTER);
 		ImageIcon welcomeIcon = new ImageIcon("Images/Welcome.png");
@@ -61,6 +62,7 @@ public class Start extends JFrame {
 		
 		contentPane.add(lblWelcome);		
 		
+		//create new review button & action
 		JButton btnNewReview = new JButton();
 		btnNewReview.setMargin(buttonMargin);
 		btnNewReview.setBorderPainted(false);
@@ -68,13 +70,21 @@ public class Start extends JFrame {
 		btnNewReview.setContentAreaFilled(false);
 		ImageIcon newReviewIcon = new ImageIcon("Images/NewReview.png");
 		btnNewReview.setIcon(newReviewIcon);
+		contentPane.add(btnNewReview);
 		btnNewReview.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				try {
+					dispose();   //to close start page when opening new review page
+					NewReview newReview = new NewReview();
+					newReview.setVisible(true);
+				} catch (Exception f) {
+					f.printStackTrace();
+				}
 			}
 		});
 
-		contentPane.add(btnNewReview);
 		
+		//view old reviews button & action
 		JButton btnViewReviews = new JButton();
 		btnViewReviews.setMargin(buttonMargin);
 		btnViewReviews.setBorderPainted(false);
@@ -82,12 +92,13 @@ public class Start extends JFrame {
 		btnViewReviews.setContentAreaFilled(false);
 		ImageIcon viewReviewsIcon = new ImageIcon("Images/ViewReviews.png");
 		btnViewReviews.setIcon(viewReviewsIcon);
+		contentPane.add(btnViewReviews);
 		btnViewReviews.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
 			}
 		});
-		contentPane.add(btnViewReviews);
+		
 		
 	}
 
